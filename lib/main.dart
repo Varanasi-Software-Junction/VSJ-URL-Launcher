@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'URL Launcher'),
+      home: const MyHomePage(title: 'VSJ URL Launcher'),
     );
   }
 }
@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // onPressed calls using this URL are not gated on a 'canLaunch' check
     // because the assumption is that every device can launch a web URL.
     final Uri toLaunch =
-    Uri(scheme: 'https', host: 'www.cylog.org', path: 'headers/');
+    Uri(scheme: 'https', host: 'varanasisoftwarejunction.blogsput.com', path: '/');
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -145,6 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ElevatedButton(
                 onPressed: _hasCallSupport
                     ? () => setState(() {
+                      if(_phone=="")
+                        _phone="93358743326";
                   _launched = _makePhoneCall(_phone);
                 })
                     : null,
@@ -187,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _launched = _launchUniversalLinkIos(toLaunch);
                 }),
                 child: const Text(
-                    'Launch a universal link in a native app, fallback to Safari.(Youtube)'),
+                    'Launch a universal link in a native app'),
               ),
               const Padding(padding: EdgeInsets.all(16.0)),
               ElevatedButton(
@@ -203,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const Padding(padding: EdgeInsets.all(16.0)),
               Link(
                 uri: Uri.parse(
-                    'https://pub.dev/documentation/url_launcher/latest/link/link-library.html'),
+                    'https://varanasisoftwarejunction.blogspot.com'),
                 target: LinkTarget.blank,
                 builder: (BuildContext ctx, FollowLink? openLink) {
                   return TextButton.icon(

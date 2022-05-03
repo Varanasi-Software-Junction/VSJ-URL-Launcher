@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blogspot.varanasisoftwarejunction.vsjurllauncher">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
    <application
         android:label="vsjurllauncher"
         android:icon="@mipmap/ic_launcher">
