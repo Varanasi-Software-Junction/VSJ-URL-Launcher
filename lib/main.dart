@@ -120,12 +120,24 @@ class _MyHomePageState extends State<MyHomePage> {
     await launchUrl(launchUri);
   }
 
+  Future<void> _sendEMail(String email) async {
+    final Uri launchUri = Uri(
+      scheme: 'mailto',
+      path: 'varanasisoftwarejunction@gmail.com',
+      query: 'subject=Hi VSJ&body=Glad to meet you', //add subject and body here
+    );
+    await launchUrl(launchUri);
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     // onPressed calls using this URL are not gated on a 'canLaunch' check
     // because the assumption is that every device can launch a web URL.
     final Uri toLaunch =
-    Uri(scheme: 'https', host: 'varanasisoftwarejunction.blogsput.com', path: '/');
+    Uri(scheme: 'https', host: 'varanasisoftwarejunction.blogspot.com', path: '/');
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -146,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: _hasCallSupport
                     ? () => setState(() {
                       if(_phone=="")
-                        _phone="93358743326";
+                        _phone="+919335874326";
                   _launched = _makePhoneCall(_phone);
                 })
                     : null,
@@ -154,6 +166,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     ? const Text('Make phone call')
                     : const Text('Calling not supported'),
               ),
+
+
+
+
+
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(toLaunch.toString()),
+              ),
+              ElevatedButton(
+                onPressed: () => setState(() {
+                  _launched = _sendEMail("EMail");
+                }),
+                child: const Text('Send EMail'),
+              ),
+
+
+
+
+
+
+
+
+
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(toLaunch.toString()),
